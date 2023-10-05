@@ -28,6 +28,7 @@ Aqui estão alguns dos tópicos incríveis que iremos explorar no curso:
 ## Iniciando com Cypress 13
 
 No terminal digitar o seguinte comando no front do projeto:
+
 `$ npm install cypress --save-dev`
 
 Para abrir o Cypress pela primeira vez basta digitar o comando baixo no terminal:
