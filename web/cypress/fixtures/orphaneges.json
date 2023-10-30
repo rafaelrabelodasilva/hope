@@ -3,16 +3,33 @@
         "name": "Orfanato Felicidade",
         "description": "Oferecemos um lar amoroso para crianças carentes",
         "opening_hours": "Segunda a Sexta, das 8h às 18h",
-        "open_on_weekends": "Não"
+        "open_on_weekends": "Não",
+        "position": {
+            "latitude": -23.594928,
+            "longitude": -46.686804
+        },
+        "image": "kids-playground-1.png"
     },
-    "other": {
-        "name": "Casa das Crianças Alegres",
+    "duplicate": {
+        "name": "Casa das Crianças Felizes",
         "description": "Proporcionamos cuidado e educação para órfãos",
-        "opening_hours": "Aberto todos os dias, 24 horas por dia"
+        "opening_hours": "Aberto todos os dias, 24 horas por dia",
+        "open_on_weekends": "Sim",
+        "position": {
+            "latitude": -23.596450940802633,
+            "longitude": -46.68912934156518
+        },
+        "image": "kids-playground-5.png"
     },
-    "other2": {
+    "map": {
         "name": "Lar da Esperança Infantil",
         "description": "Acolhemos crianças em situação de vulnerabilidade",
-        "opening_hours": "Horário de funcionamento flexível, ligue para mais informações"
+        "opening_hours": "Horário de funcionamento flexível, ligue para mais informações",
+        "open_on_weekends": "Não",
+        "position": {
+            "latitude": -23.597249796619813,
+            "longitude": -46.68735602698581
+        },
+        "image": "kids-playground-7.png"
     }
 }

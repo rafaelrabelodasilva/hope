@@ -34,3 +34,27 @@ No terminal digitar o seguinte comando no front do projeto:
 Para abrir o Cypress pela primeira vez basta digitar o comando baixo no terminal:
 
 `$ npx cypress open`
+
+## Biblioteca faker
+
+Instalado a biblioteca faker para que a massa de teste seja dinâmica.
+
+Para instalar basta digitar o comando abaixo no terminal:
+
+`$ npm install --save-dev @faker-js/faker -D`
+
+Site da biblioteca: https://fakerjs.dev/
+
+A biblioteca é utilizada diretamente na suíte de testes. Ex.: register.cy.js
+
+## Biblioteca cypress-mongodb
+
+Ela irá fazer a gestão das collections do MongoDB, como drop, create, insert, find, etc:
+
+`$ npm i cypress-mongodb -D`
+
+Site da biblioteca: https://www.npmjs.com/package/cypress-mongodb
+
+Os arquivos alterados foram: 
+* cypress.config.js
+* e2e.js

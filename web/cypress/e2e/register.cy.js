@@ -1,32 +1,40 @@
 import data from '../fixtures/orphaneges.json'
+import createPage from '../support/pages/create'
+import mapPage from '../support/pages/map'
+
+// import { faker } from '@faker-js/faker'
 
 describe('Cadastro de orfanatos', () => {
     it('deve cadastrar um novo orfanato', () => {
 
         const orphanage = data.create
 
-        cy.visitWithMockGeolocation('http://localhost:3000/orphanages/create')
+        //Biblioteca cypress-mongodb que deleta o registro em que o nome seja igual a massa de teste
+        cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
 
-        cy.get('legend')
-            .should('be.visible')
-            .should('have.text', 'Cadastro')
+        createPage.go()
+        cy.setMapPosition(orphanage.position)
+        createPage.form(orphanage)
+        createPage.submit()
 
-        cy.get('input[name=name]')
-            .type(orphanage.name)
+        mapPage.popup.haveText('Orfanato cadastrado com sucesso.')
 
-        cy.get('#description')
-            .type(orphanage.description)
+    })
 
-        cy.get('input[type=file]')
-            .selectFile('cypress/fixtures/images/kids-playground-1.png', {force: true})
+    it('não deve cadastrar orfanato quando o nome é duplicado', () => {
+        const orphanage = data.duplicate
 
-        cy.get('#opening_hours')
-            .type(orphanage.opening_hours)
+        //Biblioteca cypress-mongodb que deleta o registro em que o nome seja igual a massa de teste
+        cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
 
-        cy.contains('button', orphanage.open_on_weekends)
-            .click()
+        cy.postOrphanage(orphanage)
 
-        cy.get('.save-button').click()
+        createPage.go()
+        cy.setMapPosition(orphanage.position)
+        createPage.form(orphanage)
+        createPage.submit()
+
+        createPage.popup.haveText('Já existe um cadastro com o nome: ' + orphanage.name)
     })
 })
 

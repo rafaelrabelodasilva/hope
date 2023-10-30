@@ -1,14 +1,15 @@
 const { defineConfig } = require("cypress");
+const { configurePlugin } = require("cypress-mongodb");
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      configurePlugin(on);
     },
     env: {
-      browserPermissions: {
-        notifications: 'allow',
-        geolocation: 'allow'
+      mongodb: {
+        uri: 'mongodb+srv://qax:xperience@cluster0.4awwpz2.mongodb.net/HopeDB?retryWrites=true&w=majority',
+        database: 'HopeDB'
       }
     }
   },
