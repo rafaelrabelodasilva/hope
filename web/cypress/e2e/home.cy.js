@@ -1,6 +1,6 @@
 describe('home spec', () => {
-  it('Hope web deve estar online', () => {
-    cy.visit('http://localhost:3000')
+  it('hope web deve estar online', () => {
+    cy.visit('/')
 
     cy.get('h1')
       .should('have.text', 'Semeando esperança, colhendo sorrisos')

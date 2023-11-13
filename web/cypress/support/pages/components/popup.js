@@ -1,3 +1,4 @@
+
 class Popup {
     haveText(text) {
         cy.get('.swal2-html-container')

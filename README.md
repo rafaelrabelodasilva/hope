@@ -58,3 +58,32 @@ Site da biblioteca: https://www.npmjs.com/package/cypress-mongodb
 Os arquivos alterados foram: 
 * cypress.config.js
 * e2e.js
+
+<!-- ## Biblioteca Allure
+
+Gera os relatórios ???
+$ npm i @mmisty/cypress-allure-adapter -D
+
+Retorna um binário que vai conseguir ler os arquivos .json que estão dentro da pasta web/allure-results e construir nosso servidor de relatórios:
+
+`$ npm i allure-commandline -D`
+
+Para iniciar basta digitar o comando abaixo no diretório web:
+
+`$ npx allure serve`
+
+Ele precisa do java para conseguir ler e transformar em html como relatório
+
+`https://www.oracle.com/br/java/technologies/downloads/`
+
+`JDK 21, windows, x64 MSI Installer`
+
+Fazer a instalação normalmente.
+
+Fechar o terminal e digitar o comando para saber se está instalado com sucesso no diretório web:
+
+`$ java --version`
+
+Ele faz uns paranauê.
+
+`$ npx allure serve` -->

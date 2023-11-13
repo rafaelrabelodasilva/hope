@@ -1,45 +1,20 @@
-import data from '../fixtures/orphaneges.json'
 
-describe('mapa', () => {
-    it('deve poder escolher um orfanato no mapa', () => {
+import data from '../fixtures/orphanages.json'
+
+describe('Mapa', () => {
+
+    it('deve escolher um orfanato no mapa', () => {
         const orphanage = data.map
-        cy.deleteMany(
-            { name: orphanage.name },
-            { collection: 'orphanages' }
-        )
+
+        cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
 
         cy.postOrphanage(orphanage)
 
-        cy.goto('http://localhost:3000/map')
+        cy.openOrphanage(orphanage.name)
 
-        cy.get('.leaflet-marker-icon').as('mapList')
+        cy.contains('h1', orphanage.name)
+            .should('be.visible')
 
-        cy.get('@mapList').each((ele, index, list) => {
-            cy.get('@mapList')
-                .eq(index)
-                .click({ force: true })
-            cy.wait(1000)
-
-            cy.get('.leaflet-popup-content').as('divName')
-
-            cy.get('@divName')
-                .invoke('text')
-                .then((text) => {
-                    cy.log(text)
-                    if (text === orphanage.name) {
-                        cy.get('@mapList').eq(index).as('foundItem')
-                        cy.log('Orfanato encontrado - ' + orphanage.name)
-                    }
-
-                    cy.get('@foundItem')
-                        .click({ force: true })
-
-                    cy.contains('.leaflet-popup-content', orphanage.name)
-                        .find('a').click({ force: true })
-
-                        cy.contains('h1', orphanage.name)
-                            .should('be.visible')
-                })
-        })
+        cy.googleMapLink(orphanage.position)
     })
 })

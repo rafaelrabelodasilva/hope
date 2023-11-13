@@ -23,41 +23,47 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import './views/map'
+import './views/create'
+import './views/components'
+
 Cypress.Commands.add('goto', (url, latitude = -23.5970626, longitude = -46.690731) => {
     const mockGeolocation = (win, latitude, longitude) => {
         cy.stub(win.navigator.geolocation, 'getCurrentPosition', cb => {
-            return cb({coords: { latitude, longitude }});
+            return cb({ coords: { latitude, longitude } });
         });
     };
     cy.visit(url, {
-        onbeforeunload: win => {
-            mockGeolocation(win, latitude, longitude)
+        onBeforeLoad: win => {
+            mockGeolocation(win, latitude, longitude);
         }
-    })
-})
+    });
+});
 
 Cypress.Commands.add('setMapPosition', (position) => {
+    cy.log(position)
     window.localStorage.setItem('hope-qa:latitude', position.latitude)
     window.localStorage.setItem('hope-qa:longitude', position.longitude)
 })
 
 Cypress.Commands.add('postOrphanage', (orphanage) => {
-
-    //Coleta o arquivo e converte para binário porque a API precisa receber como binário
-    cy.fixture('images/' + orphanage.image, 'binary') //Carrega o arquivo no formato binário
+    cy.fixture('images/' + orphanage.image, 'binary')
         .then((image) => Cypress.Blob.binaryStringToBlob(image, 'image/png'))
         .then((blob) => {
+
             const formData = new FormData();
+
             formData.append('name', orphanage.name);
             formData.append('description', orphanage.description);
             formData.append('latitude', orphanage.position.latitude);
             formData.append('longitude', orphanage.position.longitude);
             formData.append('opening_hours', orphanage.opening_hours);
-            formData.append('open_on_weekends', true);
-            formData.append('images', blob, orphanage.image)
+            formData.append('open_on_weekends', orphanage.open_on_weekends);
+            formData.append('images', blob, orphanage.image);
 
             cy.request({
-                url: 'http://localhost:3333/orphanages',
+                url: Cypress.env('baseApi') + '/orphanages',
                 method: 'POST',
                 headers: {
                     'content-type': 'multipart/form-data'

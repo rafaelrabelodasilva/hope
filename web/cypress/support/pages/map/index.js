@@ -1,9 +1,11 @@
-import popup from '../components/popup'
+import popup from "../components/popup"
 
-class mapPage {
+class MapPage {
+
     constructor() {
         this.popup = popup
     }
+
 }
 
-export default new mapPage()
+export default new MapPage()

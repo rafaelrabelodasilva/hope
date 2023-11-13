@@ -13,11 +13,15 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// $ npm i @mmisty/cypress-allure-adapter -D
+import '@mmisty/cypress-allure-adapter/support'
+
 // Import commands.js using ES2015 syntax:
 import { addCommands } from 'cypress-mongodb/dist/index-browser';
 addCommands();
 
 import './commands'
+
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
