@@ -79,7 +79,7 @@ describe('Cadastro de orfanatos', () => {
             cy.alertHaveText('Horário', 'Campo obrigatório')
         })
     
-        it('não deve cadastras os campos obrigatórios não forem preenchidos', () => {
+        it('não deve cadastrar os campos obrigatórios não forem preenchidos', () => {
     
             let orphanage = generator()
     

@@ -82,7 +82,7 @@ export default function OrphanagesMap() {
       });
   }, []);
 
-  const setSLocation = (latitude, longitude) => {
+  const setLSLocation = (latitude, longitude) => {
     localStorage.setItem('hope-qa:latitude', latitude)
     localStorage.setItem('hope-qa:longitude', longitude)
   }
@@ -91,9 +91,10 @@ export default function OrphanagesMap() {
     useMapEvents({
       click(e) {
         setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-        setSLocation(e.latlng.lat, e.latlng.lng)
+        setLSLocation(e.latlng.lat, e.latlng.lng)
       },
     });
+
     return selectedPosition ? (
       <Marker
         key={selectedPosition[0]}
@@ -157,6 +158,8 @@ export default function OrphanagesMap() {
       images,
       opening_hours,
     };
+
+    console.log(payload)
 
     try {
       await dataSchema.validate(payload, { abortEarly: false });

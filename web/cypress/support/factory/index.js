@@ -1,6 +1,6 @@
 // Fábrica de massa de testes
-
 import { faker } from '@faker-js/faker'
+
 //Muito boa para trabalhar com objetos no javascript
 // npm i underscore
 import _ from 'underscore'
@@ -26,7 +26,7 @@ export default {
     generator: function() {
         return {
             name: faker.company.name(),
-            description: faker.lorem.paragraph,
+            description: faker.lorem.paragraph(),
             opening_hours: faker.word.words(3),
             open_on_weekends: true,
             position: {

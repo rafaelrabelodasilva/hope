@@ -7,7 +7,6 @@ describe('Mapa', () => {
         const orphanage = data.map
 
         cy.deleteMany({ name: orphanage.name }, { collection: 'orphanages' })
-
         cy.postOrphanage(orphanage)
 
         cy.openOrphanage(orphanage.name)
