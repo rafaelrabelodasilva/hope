@@ -4,11 +4,11 @@ Neste repositório, compartilho minha jornada de aprendizado no curso **Cypress 
 
 # Sumário 📚
 
-- [**Sobre o Bootcamp**](#sobre-o-bootcamp)
-    - [**Tópicos do Bootcamp**](#topicos-do-bootcamp)
-- [**Testes automatizados**](#testes-automatizados)
-- [**Comandos do projeto**](#comandos-do-projeto)
-- [**Dependências e suas instalações**](#dependências-e-suas-instalações)
+- [**Sobre o Bootcamp 📕**](#sobre-o-bootcamp-📕)
+    - [**Tópicos do Bootcamp**](#tópicos-do-bootcamp)
+- [**Testes automatizados 🧙‍♂️**](#testes-automatizados-🧙‍♂️)
+- [**Comandos do projeto 🪄**](#comandos-do-projeto-🪄)
+- [**Dependências e suas instalações 🔍**](#dependências-e-suas-instalações-🔍)
     - [**Cypress 13**](#cypress-13)
     - [**Biblioteca faker**](#biblioteca-faker)
     - [**Biblioteca cypress-mongodb**](#biblioteca-cypress-mongodb)
@@ -20,7 +20,7 @@ Neste repositório, compartilho minha jornada de aprendizado no curso **Cypress 
 
 O **Cypress Experience** é um programa de especialização em automação de testes.
 
-### Tópicos do Bootcamp 📚
+### Tópicos do Bootcamp
 
 Aqui estão alguns dos tópicos incríveis que exploramos no curso:
 
@@ -37,7 +37,7 @@ Aqui estão alguns dos tópicos incríveis que exploramos no curso:
 * DevOps
 * Cloud Reports
 
-## Testes automatizados
+## Testes automatizados 🧙‍♂️
 
 * Hope web deve estar online: valida se a aplicação está online.
 
@@ -54,7 +54,7 @@ Aqui estão alguns dos tópicos incríveis que exploramos no curso:
     * Não deve cadastrar se o horário não for informado: valida erro no cadastro sem o horário;
     * Não deve cadastrar os campos obrigatórios não forem preenchidos: valida erro no cadastro sem informações.
 
-## Comandos do projeto
+## Comandos do projeto 🪄
 
 Abrir o Cypress com interface:
 
@@ -68,7 +68,7 @@ Abrir o relatório dos testes no navegador:
 
 `$ npx allure serve`
 
-## Dependências e suas instalações
+## Dependências e suas instalações 🔍
 
 ### Cypress 13
 
